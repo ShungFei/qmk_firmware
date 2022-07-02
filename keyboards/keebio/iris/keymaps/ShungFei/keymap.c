@@ -169,7 +169,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_DEL,  KC_BSPC, KC_ENT,                    KC_TAB,  KC_SPC,  KC_ESC
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
-  )
+  ),
 #else
   [BASE] = LAYOUT_miryoku(
   #if defined MIRYOKU_ALPHAS_AZERTY
@@ -288,7 +288,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_ESC,  KC_SPC,  KC_TAB,                    KC_ENT,  KC_BSPC, KC_DEL
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
-  )
+  ),
 #endif
   [BUTTON] = LAYOUT_miryoku(
     U_UND,   U_CUT,   U_CPY,   U_PST,   U_RDO,   U_RDO,   U_PST,   U_CPY,   U_CUT,   U_UND,
