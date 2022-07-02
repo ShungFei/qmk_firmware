@@ -3,6 +3,8 @@
 # https://github.com/manna-harbour/miryoku
 # generated -*- buffer-read-only: t -*-
 
+LTO_ENABLE = yes
+CONSOLE_ENABLE = no
 MOUSEKEY_ENABLE = yes # Mouse keys
 EXTRAKEY_ENABLE = yes # Audio control and System control
 AUTO_SHIFT_ENABLE = yes # Auto Shift
