@@ -303,96 +303,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool is_alt_tab_active = false;
 uint16_t alt_tab_timer = 0;
 
-#if defined MIRYOKU_LAYERS_FLIP
 bool encoder_update_user(uint8_t index, bool clockwise) {
+#if defined MIRYOKU_LAYERS_FLIP
     if (index == 1) {
         // Right encoder
-        if (layer_state_is(BASE) | layer_state_is(BUTTON)) {
-            // Browser tabbing
-            if (clockwise) {
-                tap_code16(C(KC_TAB));
-            } else {
-                tap_code16(S(C(KC_TAB)));
-            }
-        } else if (layer_state_is(SYM)) {
-            // Scroll search results
-            if (clockwise) {
-                tap_code(KC_F3);
-            } else {
-                tap_code16(S(KC_F3));
-            }
-        } else if (layer_state_is(NUM) | layer_state_is(GAME)) {
-            // Window switching. Could also use ALT+ESC
-            if (clockwise) {
-                if (!is_alt_tab_active) {
-                    is_alt_tab_active = true;
-                    register_code(KC_LALT);
-                }
-                alt_tab_timer = timer_read();
-                tap_code16(KC_TAB);
-            } else {
-                if (!is_alt_tab_active) {
-                    is_alt_tab_active = true;
-                    register_code(KC_LALT);
-                }
-                alt_tab_timer = timer_read();
-                tap_code16(S(KC_TAB));
-            }
-        } else if (layer_state_is(FUN)) {
-            // Brightness
-            if (clockwise) {
-                tap_code(KC_BRIU);
-            } else {
-                tap_code(KC_BRID);
-            }
-        }
-    } else if (index == 0) {
-        // Left encoder
-        if (layer_state_is(BASE) | layer_state_is(BUTTON)) {
-            // Scrolling
-            if (clockwise) {
-                tap_code(KC_PGDN);
-            } else {
-                tap_code(KC_PGUP);
-            }
-        } else if (layer_state_is(MEDIA) | layer_state_is(GAME)) {
-            // Volume control
-            if (clockwise) {
-                tap_code(KC_VOLU);
-            } else {
-                tap_code(KC_VOLD);
-            }
-        } else if (layer_state_is(NAV)) {
-            // Up/down (ALT) and left/right arrow keys
-            if (get_mods() & MOD_BIT(KC_LALT)) {
-                // Holding ALT
-                if (clockwise) {
-                    tap_code(KC_UP);
-                } else {
-                    tap_code(KC_DOWN);
-                }
-            } else {
-                if (clockwise) {
-                    tap_code(KC_RGHT);
-                } else {
-                    tap_code(KC_LEFT);
-                }
-            }
-        } else if (layer_state_is(MOUSE)) {
-            // Redo/undo
-            if (clockwise) {
-                tap_code16(C(KC_Y));
-            } else {
-                tap_code16(C(KC_Z));
-            }
-        }
-    }
-    return false;
-}
 #else
-bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         // Left encoder
+#endif
         if (layer_state_is(BASE) | layer_state_is(BUTTON)) {
             // Browser tabbing
             if (clockwise) {
@@ -432,8 +350,13 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
                 tap_code(KC_BRID);
             }
         }
+#if defined MIRYOKU_LAYERS_FLIP
+    } else if (index == 0) {
+        // Left encoder
+#else
     } else if (index == 1) {
         // Right encoder
+#endif
         if (layer_state_is(BASE) | layer_state_is(BUTTON)) {
             // Scrolling
             if (clockwise) {
@@ -475,7 +398,6 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     }
     return false;
 }
-#endif
 
 // For rotary encoder window switching
 void matrix_scan_user(void) {
