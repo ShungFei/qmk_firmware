@@ -7,6 +7,9 @@
 
 #pragma once
 
+// #define USE_I2C
+#define EE_HANDS
+
 // default but used in macros
 #undef TAPPING_TERM
 #define TAPPING_TERM 200
