@@ -390,9 +390,9 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         } else if (layer_state_is(MOUSE)) {
             // Redo/undo
             if (clockwise) {
-                tap_code16(C(KC_Y));
+                tap_code16(U_RDO);
             } else {
-                tap_code16(C(KC_Z));
+                tap_code16(U_UND));
             }
         }
     }
