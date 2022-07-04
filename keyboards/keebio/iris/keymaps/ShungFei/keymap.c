@@ -372,19 +372,19 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
                 tap_code(KC_VOLD);
             }
         } else if (layer_state_is(NAV)) {
-            // Up/down (ALT) and left/right arrow keys
-            if (get_mods() & MOD_BIT(KC_LALT)) {
-                // Holding ALT
-                if (clockwise) {
-                    tap_code(KC_UP);
-                } else {
-                    tap_code(KC_DOWN);
-                }
-            } else {
+            // Up/down and (CTRL) left/right arrow keys
+            if (get_mods() & MOD_BIT(KC_LCTL)) {
+                // Holding CTRL
                 if (clockwise) {
                     tap_code(KC_RGHT);
                 } else {
                     tap_code(KC_LEFT);
+                }
+            } else {
+                if (clockwise) {
+                    tap_code(KC_UP);
+                } else {
+                    tap_code(KC_DOWN);
                 }
             }
         } else if (layer_state_is(MOUSE)) {
