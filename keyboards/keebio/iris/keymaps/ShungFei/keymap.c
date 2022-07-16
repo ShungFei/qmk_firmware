@@ -382,9 +382,9 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
                 }
             } else {
                 if (clockwise) {
-                    tap_code(KC_UP);
-                } else {
                     tap_code(KC_DOWN);
+                } else {
+                    tap_code(KC_UP);
                 }
             }
         } else if (layer_state_is(MOUSE)) {
@@ -392,7 +392,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             if (clockwise) {
                 tap_code16(U_RDO);
             } else {
-                tap_code16(U_UND));
+                tap_code16(U_UND);
             }
         }
     }
