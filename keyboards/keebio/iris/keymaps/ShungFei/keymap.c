@@ -386,6 +386,14 @@ KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NU
 U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
 U_NP,              U_NP,              KC_BTN3,           KC_BTN1,           KC_BTN2,           KC_BTN2,           KC_BTN1,           KC_BTN3,           U_NP,              U_NP
 
+
+#define IRIS_ALTERNATIVES_TAP_CUSTOMDH \
+DF(U_BASE), KC_1,   KC_2,   KC_3,   KC_4,   KC_5,                      KC_6,   KC_7,  KC_8,    KC_9,   KC_0,    DF(U_BASE),\
+KC_LBRC,    KC_Q,   KC_W,   KC_F,   KC_P,   KC_B,                      KC_J,   KC_L,  KC_U,    KC_Y,   KC_QUOT, KC_RBRC, \
+KC_SCLN,    KC_A,   KC_R,   KC_S,   KC_T,   KC_G,                      KC_M,   KC_N,  KC_E,    KC_I,   KC_O,    KC_EQL, \
+KC_GRV,     KC_Z,   KC_X,   KC_C,   KC_D,   KC_V,   KC_MPLY,  KC_MUTE, KC_K,   KC_H,  KC_COMM, KC_DOT, KC_SLSH, KC_BSLS, \
+                                    KC_ESC, KC_SPC, KC_TAB,   KC_ENT,  KC_SPC, KC_DEL
+
 // copied from users/manna-harbour_miryoku/miryoku_babel/miryoku_layer_selection.h
 // Copyright 2019 Manna Harbour
 // https://github.com/manna-harbour/miryoku
@@ -470,6 +478,8 @@ U_NP,              U_NP,              KC_BTN3,           KC_BTN1,           KC_B
       #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTY_FLIP
     #elif defined (MIRYOKU_EXTRA_QWERTZ)
       #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTZ_FLIP
+    // #elif defined (MIRYOKU_EXTRA_CUSTOMDH)
+    //   #define MIRYOKU_LAYER_EXTRA IRIS_ALTERNATIVES_TAP_CUSTOMDH_FLIP
     #else
       #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTY_FLIP
     #endif
@@ -494,6 +504,9 @@ U_NP,              U_NP,              KC_BTN3,           KC_BTN1,           KC_B
       #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTY
     #elif defined (MIRYOKU_EXTRA_QWERTZ)
       #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTZ
+    #elif defined (MIRYOKU_EXTRA_CUSTOMDH)
+      #define MIRYOKU_LAYER_EXTRA IRIS_ALTERNATIVES_TAP_CUSTOMDH
+      #define MIRYOKU_LAYERMAPPING_EXTRA FULL_MAPPING
     #else
       #define MIRYOKU_LAYER_EXTRA MIRYOKU_ALTERNATIVES_BASE_QWERTY
     #endif
@@ -700,6 +713,7 @@ MIRYOKU_LAYER_LIST
 
 #if !defined (MIRYOKU_MAPPING)
   #define MIRYOKU_MAPPING LAYOUT_miryoku
+  #define FULL_MAPPING LAYOUT_iris
 #endif
 
 #define U_NP KC_NO // key is not present

@@ -1,5 +1,8 @@
 LTO_ENABLE = yes
 CONSOLE_ENABLE = no
+SPACE_CADET_ENABLE = no
+GRAVE_ESC_ENABLE = no 
+MAGIC_ENABLE = no
 
 # copied from users/manna-harbour_miryoku/rules.mk
 # Copyright 2019 Manna Harbour
@@ -7,7 +10,7 @@ CONSOLE_ENABLE = no
 
 MOUSEKEY_ENABLE = yes # Mouse keys
 EXTRAKEY_ENABLE = yes # Audio control and System control
-AUTO_SHIFT_ENABLE = yes # Auto Shift
+AUTO_SHIFT_ENABLE = no # Auto Shift
 
 # copied from users/manna-harbour_miryoku/post_rules.mk
 # Copyright 2022 Manna Harbour
